@@ -1,0 +1,389 @@
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+  --bg-black: #07070a;
+  --magenta-glow: #8f1cff;
+  --magenta-soft: rgba(143, 28, 255, 0.25);
+  --text-primary: #ffffff;
+  --text-muted: #b3b3c2;
+  --accent-gold: #f4c430;
+  --danger: #ff4d4f;
+  --success: #1ecb4f;
+  --radius: 14px;
+  --blur-bg: rgba(10, 10, 20, 0.75);
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg-black);
+  color: var(--text-primary);
+}
+
+/* =========================
+   BACKGROUND FILM EFFECT
+========================= */
+.app-bg {
+  background:
+    radial-gradient(circle at top, var(--magenta-soft), transparent 60%),
+    linear-gradient(180deg, #040406, #0b0016);
+  min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+}
+
+.title-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.app-title {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+}
+
+.menu-btn {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* =========================
+   BALANCES
+========================= */
+.balances {
+  text-align: center;
+  padding: 8px 16px;
+}
+
+.balance {
+  margin-bottom: 6px;
+}
+
+.balance span {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.balance strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.balance.coins strong {
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+
+#levelName {
+  color: var(--accent-gold);
+  font-size: 14px;
+}
+
+/* =========================
+   MINING AREA
+========================= */
+.mining-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  position: relative;
+}
+
+.level-selector {
+  font-size: 14px;
+  color: var(--text-muted);
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   COIN IMAGE
+========================= */
+.coin-container {
+  position: relative;
+}
+
+.coin-container img {
+  width: 220px;
+  max-width: 80vw;
+  transition: transform 0.15s ease;
+  cursor: pointer;
+}
+
+.coin-container img:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   PARTICLES
+========================= */
+#particleLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent-gold);
+  animation: floatUp 1.2s ease forwards;
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+}
+
+/* =========================
+   REFILL BAR
+========================= */
+.refill-wrapper {
+  width: 85%;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.refill-bar {
+  height: 10px;
+  background: #1b1b2a;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.refill-progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--magenta-glow), var(--accent-gold));
+  transition: width 0.4s linear;
+}
+
+.claim-btn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--accent-gold);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.claim-btn:enabled {
+  opacity: 1;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background: rgba(5, 5, 10, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: var(--accent-gold);
+}
+
+/* =========================
+   MODALS
+========================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 420px;
+  background: var(--blur-bg);
+  backdrop-filter: blur(18px);
+  border-radius: var(--radius);
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  padding: 22px;
+  z-index: 11;
+  transition: all 0.4s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* =========================
+   MODAL CONTENT
+========================= */
+.modal h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.modal input {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #11111b;
+  color: white;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.cancel {
+  background: #2a2a3a;
+  color: white;
+  margin-right: 8px;
+}
+
+.btn.confirm {
+  background: var(--accent-gold);
+  color: black;
+}
+
+/* =========================
+   DESKTOP ADJUSTMENTS
+========================= */
+@media (min-width: 768px) {
+  .coin-container img {
+    width: 260px;
+  }
+}
+/* =========================
+   SIDE MENU
+========================= */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100%;
+  background: rgba(8, 8, 18, 0.98);
+  backdrop-filter: blur(14px);
+  z-index: 20;
+  padding: 20px;
+  transition: right 0.4s ease;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-header h3 {
+  font-size: 18px;
+}
+
+.menu-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.menu-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.menu-list li {
+  padding: 12px 0;
+  font-size: 15px;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.menu-list li:hover {
+  color: var(--accent-gold);
+}
+
+.menu-list hr {
+  border: none;
+  border-top: 1px solid #222;
+  margin: 15px 0;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BitcoinBlastVault</title>
+
+  <!-- App Icon -->
+  <link rel="icon" href="assets/icon.png" />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="app-bg">
+
+  <!-- ===== HEADER ===== -->
+  <header class="app-header">
+    <div class="title-box">
+      <img src="assets/icon.png" alt="Verified" class="app-icon" />
+      <span class="app-title">BitcoinBlastVault</span>
+    </div>
+
+    <div class="menu-btn" id="menuBtn">
+      ☰
+    </div>
+  </header>
+
+  <!-- ===== BALANCES ===== -->
+  <section class="balances">
+    <div class="balance usd">
+      <span>USD</span>
+      <strong id="usdBalance">$0.00000</strong>
+    </div>
+
+    <div class="balance btc">
+      <span>BTC</span>
+      <strong id="btcBalance">₿0.00000000</strong>
+    </div>
+
+    <div class="balance coins">
+      <strong id="coinBalance">0</strong>
+      <span id="levelName">Wood 🪵</span>
+    </div>
+  </section>
+
+  <!-- ===== MAIN MINING AREA ===== -->
+  <main class="mining-area">
+
+    <!-- Level Selector -->
+    <div class="level-selector" id="levelSelector">
+      Level &gt;
+    </div>
+
+    <!-- Coin Image -->
+    <div class="coin-container">
+      <img
+        src="assets/images/wood.png"
+        alt="Mining Coin"
+        id="coinImage"
+        draggable="false"
+      />
+    </div>
+
+    <!-- Particle Layer -->
+    <div id="particleLayer"></div>
+
+    <!-- Refill Bar -->
+    <div class="refill-wrapper">
+      <div class="refill-bar">
+        <div class="refill-progress" id="refillProgress"></div>
+      </div>
+      <button class="claim-btn" id="claimBtn" disabled>
+        Claim Bonus
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ===== BOTTOM NAVIGATION ===== -->
+  <nav class="bottom-nav">
+    <button class="tab active" data-tab="earn">Earn</button>
+    <button class="tab" data-tab="ref">Ref</button>
+    <button class="tab" data-tab="tasks">Tasks</button>
+    <button class="tab" data-tab="boost">Boost</button>
+    <button class="tab" data-tab="swap">Swap</button>
+  </nav>
+
+<!-- ===== SIDE MENU ===== -->
+<aside class="side-menu" id="sideMenu">
+  <div class="menu-header">
+    <h3>Menu</h3>
+    <button id="closeMenu">✕</button>
+  </div>
+
+  <ul class="menu-list">
+    <li data-action="login">Login</li>
+    <li data-action="register">Create Account</li>
+    <li data-action="forgot">Forgotten Password</li>
+
+    <hr />
+
+    <li data-action="sound">Sound: <span id="soundStatus">ON</span></li>
+    <li data-action="reset">Reset Progress</li>
+  </ul>
+</aside>
+
+  <!-- ===== MODAL OVERLAY ===== -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+
+  <!-- ===== MODAL CONTAINER ===== -->
+  <div class="modal" id="modalContainer">
+    <!-- Dynamic popup content injected here -->
+  </div>
+
+  <!-- ===== SCRIPTS (ORDER MATTERS) ===== -->
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/mining.js"></script>
+  <script src="js/popups.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/rates.js"></script>
+
+</body>
+</html>
